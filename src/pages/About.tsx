@@ -36,7 +36,7 @@ const About = () => {
               <div className="order-2 lg:order-1">
                 <h2 className="text-3xl font-display font-bold mb-6">Nossa História</h2>
                 <p className="text-gray-700 mb-6">
-                  Fundada em 2017, a DevPortfolio nasceu da paixão por criar websites excepcionais que não apenas parecem impressionantes, mas também entregam resultados tangíveis para nossos clientes. Começamos como uma pequena equipe de desenvolvedores e designers que acreditavam que cada negócio, independentemente do tamanho, merece uma presença digital de alta qualidade.
+                  Fundada em 2017, a VitrineMe nasceu da paixão por criar websites excepcionais que não apenas parecem impressionantes, mas também entregam resultados tangíveis para nossos clientes. Começamos como uma pequena equipe de desenvolvedores e designers que acreditavam que cada negócio, independentemente do tamanho, merece uma presença digital de alta qualidade.
                 </p>
                 <p className="text-gray-700 mb-6">
                   Ao longo dos anos, expandimos nossa equipe e aprimoramos nossa expertise, trabalhando com clientes de diversos segmentos, desde pequenas empresas locais até empresas multinacionais. Nossa abordagem centrada no cliente e nosso compromisso com a excelência técnica nos permitiram construir uma reputação sólida no mercado.

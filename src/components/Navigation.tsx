@@ -1,13 +1,14 @@
-
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ContactModal from "./ContactModal";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +30,8 @@ const Navigation = () => {
   
   const closeMenu = () => setIsMenuOpen(false);
 
+  const whatsappNumber = "5516993137105";
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -37,7 +40,7 @@ const Navigation = () => {
     >
       <div className="container flex justify-between items-center">
         <Link to="/" className="text-2xl font-display font-bold gradient-text">
-          DevPortfolio
+          VitrineMe
         </Link>
         
         {/* Desktop Navigation */}
@@ -53,7 +56,11 @@ const Navigation = () => {
               {item.name}
             </Link>
           ))}
-          <Button className="gradient-bg" size="sm">
+          <Button 
+            className="gradient-bg" 
+            size="sm"
+            onClick={() => setIsContactModalOpen(true)}
+          >
             Vamos Conversar
           </Button>
         </nav>
@@ -85,12 +92,26 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
-            <Button className="gradient-bg w-full" size="sm" onClick={closeMenu}>
+            <Button 
+              className="gradient-bg w-full" 
+              size="sm" 
+              onClick={() => {
+                setIsContactModalOpen(true);
+                setIsMenuOpen(false);
+              }}
+            >
               Vamos Conversar
             </Button>
           </nav>
         </div>
       )}
+
+      {/* Contact Modal */}
+      <ContactModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+        whatsappNumber={whatsappNumber}
+      />
     </header>
   );
 };

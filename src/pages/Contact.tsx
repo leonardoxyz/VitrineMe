@@ -1,5 +1,4 @@
-
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
 import Navigation from "@/components/Navigation";
@@ -8,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 interface ContactFormData {
   name: string;
@@ -20,24 +20,42 @@ interface ContactFormData {
 const Contact = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormData>();
   const { toast } = useToast();
+  const form = useRef<HTMLFormElement>(null);
   
   // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const onSubmit = (data: ContactFormData) => {
-    console.log("Form data:", data);
-    // Here you would typically send the data to your backend or email service
-    
-    toast({
-      title: "Mensagem Enviada!",
-      description: "Retornaremos em breve. Obrigado pelo contato.",
-      duration: 5000,
-    });
-    
-    // Reset form
-    reset();
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      // Substitua estes valores pelos seus do EmailJS
+      const result = await emailjs.sendForm(
+        'service_lrl61qc', // Service ID do EmailJS
+        'template_gkbzpjj', // Template ID do EmailJS
+        form.current!,
+        'yUVhct_z1LtrhNLgj' // Public Key do EmailJS
+      );
+
+      if (result.text === 'OK') {
+        toast({
+          title: "Mensagem Enviada!",
+          description: "Retornaremos em breve. Obrigado pelo contato.",
+          duration: 5000,
+        });
+        reset();
+      } else {
+        throw new Error('Falha ao enviar mensagem');
+      }
+    } catch (error) {
+      console.error('Erro ao enviar email:', error);
+      toast({
+        title: "Erro ao enviar mensagem",
+        description: "Por favor, tente novamente mais tarde ou entre em contato por telefone.",
+        duration: 5000,
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -75,7 +93,7 @@ const Contact = () => {
                       <div>
                         <h3 className="font-medium mb-1">Email</h3>
                         <p className="text-muted-foreground mb-1">Para propostas e orçamentos:</p>
-                        <p className="font-medium">contato@devportfolio.com.br</p>
+                        <p className="font-medium">LeonardoVolxy@gmail.com</p>
                       </div>
                     </div>
 
@@ -86,11 +104,11 @@ const Contact = () => {
                       <div>
                         <h3 className="font-medium mb-1">Telefone</h3>
                         <p className="text-muted-foreground mb-1">Segunda à Sexta, 9h às 18h:</p>
-                        <p className="font-medium">(11) 99999-9999</p>
+                        <p className="font-medium">+55 (16) 99313-7105</p>
                       </div>
                     </div>
 
-                    <div className="flex items-start">
+                    {/* <div className="flex items-start">
                       <div className="mr-4 w-12 h-12 rounded-full gradient-bg flex items-center justify-center flex-shrink-0">
                         <MapPin className="h-5 w-5 text-white" />
                       </div>
@@ -99,7 +117,7 @@ const Contact = () => {
                         <p className="text-muted-foreground mb-1">Nosso escritório:</p>
                         <p className="font-medium">Av. Paulista, 1000 - Bela Vista, São Paulo - SP, 01310-100</p>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="mt-12">
@@ -112,11 +130,12 @@ const Contact = () => {
 
               {/* Contact Form */}
               <div className="lg:order-1">
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <form ref={form} onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block font-medium mb-2">Nome Completo</label>
                     <Input 
                       id="name"
+                      name="name"
                       placeholder="Seu nome"
                       {...register("name", { required: "Nome é obrigatório" })}
                       className={errors.name ? "border-destructive" : ""}
@@ -130,6 +149,7 @@ const Contact = () => {
                     <label htmlFor="email" className="block font-medium mb-2">Email</label>
                     <Input 
                       id="email"
+                      name="email"
                       type="email"
                       placeholder="seu.email@exemplo.com"
                       {...register("email", { 
@@ -150,7 +170,8 @@ const Contact = () => {
                     <label htmlFor="phone" className="block font-medium mb-2">Telefone</label>
                     <Input 
                       id="phone"
-                      placeholder="(11) 99999-9999"
+                      name="phone"
+                      placeholder="+55 (16) 99313-7105"
                       {...register("phone", { required: "Telefone é obrigatório" })}
                       className={errors.phone ? "border-destructive" : ""}
                     />
@@ -163,6 +184,7 @@ const Contact = () => {
                     <label htmlFor="company" className="block font-medium mb-2">Empresa (Opcional)</label>
                     <Input 
                       id="company"
+                      name="company"
                       placeholder="Nome da sua empresa"
                       {...register("company")}
                     />
@@ -172,6 +194,7 @@ const Contact = () => {
                     <label htmlFor="message" className="block font-medium mb-2">Mensagem</label>
                     <Textarea 
                       id="message"
+                      name="message"
                       placeholder="Descreva seu projeto ou necessidade..."
                       rows={6}
                       {...register("message", { required: "Mensagem é obrigatória" })}
@@ -192,7 +215,7 @@ const Contact = () => {
         </section>
 
         {/* Map */}
-        <section className="pb-24">
+        {/* <section className="pb-24">
           <div className="container">
             <div className="rounded-xl overflow-hidden h-80">
               <iframe 
@@ -206,7 +229,7 @@ const Contact = () => {
               ></iframe>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* FAQ */}
         <section className="pb-24">

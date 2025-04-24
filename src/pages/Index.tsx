@@ -182,7 +182,7 @@ const Index = () => {
               <p className="mb-8 max-w-xl mx-auto">
                 Entre em contato para discutirmos seu projeto e como podemos desenvolver a solução ideal para sua empresa ou negócio.
               </p>
-              <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary">
+              <Button asChild size="lg" variant="outline" className="text-black bg-white hover:bg-white/90">
                 <Link to="/contato">Vamos Conversar</Link>
               </Button>
             </div>

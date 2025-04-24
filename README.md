@@ -1,73 +1,94 @@
-# Welcome to your Lovable project
+# Portfolio de Desenvolvimento Web 🚀
 
-## Project info
+Um site moderno e responsivo para apresentação de serviços e projetos de desenvolvimento web, construído com React e tecnologias modernas.
 
-**URL**: https://lovable.dev/projects/8c621bb7-d253-444e-a78e-641f34a500ce
+## 🌟 Funcionalidades Principais
 
-## How can I edit this code?
+- 📱 Layout totalmente responsivo
+- 🎨 Design moderno com Tailwind CSS
+- 🖼️ Galeria de projetos
+- 📝 Formulário de contato
+- 🌓 Suporte a temas claro/escuro
+- ⚡ Performance otimizada
 
-There are several ways of editing your application.
+## 🛠️ Tecnologias Utilizadas
 
-**Use Lovable**
+- **React 18** - Framework principal
+- **TypeScript** - Tipagem estática
+- **Vite** - Build tool
+- **Tailwind CSS** - Estilização
+- **Shadcn/UI** - Componentes de UI
+- **React Router** - Navegação
+- **React Query** - Gerenciamento de estado
+- **EmailJS** - Integração de formulário de contato
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8c621bb7-d253-444e-a78e-641f34a500ce) and start prompting.
+## 📋 Páginas
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Início** (`/`) - Página principal com hero section e projetos em destaque
+- **Projetos** (`/projetos`) - Galeria completa de projetos
+- **Sobre** (`/sobre`) - Informações sobre a empresa
+- **Contato** (`/contato`) - Formulário de contato
+- **Detalhes do Projeto** (`/projeto/:id`) - Página individual de cada projeto
 
-**Use your preferred IDE**
+## 🧩 Componentes Principais
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- `Navigation` - Menu de navegação responsivo
+- `Footer` - Rodapé do site
+- `HeroSection` - Seção principal da página inicial
+- `ProjectCard` - Card para exibição de projetos
+- `ContactModal` - Modal do formulário de contato
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🚀 Como Iniciar
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+1. Clone o repositório
+2. Instale as dependências:
+```bash
+npm install
+# ou
+bun install
 ```
 
-**Edit a file directly in GitHub**
+3. Inicie o servidor de desenvolvimento:
+```bash
+npm run dev
+# ou
+bun dev
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+4. Acesse `http://localhost:5173`
 
-**Use GitHub Codespaces**
+## 📜 Scripts Disponíveis
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- `dev` - Inicia o servidor de desenvolvimento
+- `build` - Cria a build de produção
+- `build:dev` - Cria a build de desenvolvimento
+- `lint` - Executa a verificação de linting
+- `preview` - Visualiza a build de produção
 
-## What technologies are used for this project?
 
-This project is built with:
+## 🎨 Serviços Oferecidos
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Landing Pages
+- E-commerce
+- Sites Institucionais
+- Portfolios
+- Sistemas Web
+- Manutenção e Suporte
 
-## How can I deploy this project?
+## ⚙️ Configuração
 
-Simply open [Lovable](https://lovable.dev/projects/8c621bb7-d253-444e-a78e-641f34a500ce) and click on Share -> Publish.
+O projeto utiliza várias ferramentas de desenvolvimento:
 
-## Can I connect a custom domain to my Lovable project?
+- TypeScript (`tsconfig.json`)
+- ESLint (`eslint.config.js`)
+- Tailwind CSS (`tailwind.config.ts`)
+- PostCSS (`postcss.config.js`)
+- Vite (`vite.config.ts`)
 
-Yes, you can!
+## 📞 Contato
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Para mais informações sobre o projeto ou serviços, utilize o formulário de contato disponível no site.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+---
+
+Desenvolvido com React + Vite + TypeScript

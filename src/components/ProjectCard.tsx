@@ -38,8 +38,8 @@ const ProjectCard = ({ id, title, client, type, thumbnail, tags }: ProjectCardPr
               className="text-white border-white hover:bg-white hover:text-black" 
               size="sm"
             >
-              <Link to={`/projeto/${id}`} className="flex items-center gap-2">
-                Ver Projeto <ArrowRight className="h-4 w-4" />
+              <Link to={`/projeto/${id}`} className="flex items-center gap-2 text-black">
+                Ver Projeto <ArrowRight className="h-4 w-4 " />
               </Link>
             </Button>
           </div>
