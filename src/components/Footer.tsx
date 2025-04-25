@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Instagram, Linkedin, Mail, Phone } from "lucide-react";
 
@@ -11,7 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <Link to="/" className="text-2xl font-display font-bold gradient-text">
-              DevPortfolio
+              VitrineMe
             </Link>
             <p className="mt-4 text-sm text-gray-600">
               Transformando ideias em experiências digitais memoráveis com dedicação e inovação.
@@ -49,11 +48,11 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center text-sm text-gray-600">
                 <Mail className="h-4 w-4 mr-2 text-primary" />
-                contato@devportfolio.com.br
+                LeonardoVolxy@gmail.com
               </li>
               <li className="flex items-center text-sm text-gray-600">
                 <Phone className="h-4 w-4 mr-2 text-primary" />
-                (11) 99999-9999
+                +55 (16) 99313-7105
               </li>
               <li className="text-sm text-gray-600">
                 CNPJ: 12.345.678/0001-90
@@ -93,7 +92,7 @@ const Footer = () => {
         <div className="border-t border-gray-200 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-gray-500">
-              © {currentYear} DevPortfolio. Todos os direitos reservados.
+              © {currentYear} VitrineMe. Todos os direitos reservados.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/termos" className="text-xs text-gray-500 hover:text-primary transition-colors">

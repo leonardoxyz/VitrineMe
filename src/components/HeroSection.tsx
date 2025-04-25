@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -24,11 +23,11 @@ const HeroSection = () => {
           
           <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in" style={{animationDelay: '0.4s'}}>
             <Button asChild className="gradient-bg" size="lg">
-              <Link to="/projetos" className="flex items-center gap-2">
+              <Link to="/projects" className="flex items-center gap-2">
                 Ver Projetos <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg" className="bg-white/5 backdrop-blur-sm hover:bg-white/10">
               <Link to="/contato">Vamos Conversar</Link>
             </Button>
           </div>

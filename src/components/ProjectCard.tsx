@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -18,11 +17,11 @@ const ProjectCard = ({ id, title, client, type, thumbnail, tags }: ProjectCardPr
   
   return (
     <div 
-      className="group rounded-xl overflow-hidden hover-card glassmorphism"
+      className="group rounded-xl overflow-hidden hover-card glassmorphism p-6"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative aspect-video overflow-hidden">
+      <div className="relative aspect-video overflow-hidden rounded-lg mb-6">
         <img 
           src={thumbnail} 
           alt={title}
@@ -35,33 +34,37 @@ const ProjectCard = ({ id, title, client, type, thumbnail, tags }: ProjectCardPr
             <Button 
               asChild 
               variant="outline" 
-              className="text-white border-white hover:bg-white hover:text-black" 
+              className="text-black border-white hover:bg-white hover:text-gray-500" 
               size="sm"
             >
               <Link to={`/projeto/${id}`} className="flex items-center gap-2">
-                Ver Projeto <ArrowRight className="h-4 w-4" />
+                Ver Projeto<ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-gray-200 hover:text-black" />
               </Link>
             </Button>
           </div>
         </div>
       </div>
-      <div className="p-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="font-display text-xl font-medium">{title}</h3>
-            <p className="text-sm text-muted-foreground mt-1">Cliente: {client}</p>
+      
+      <div className="flex flex-col h-[calc(100%-theme(space.6)-theme(aspectRatio.video)*100%)]">
+        <div className="flex-1">
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex-1">
+              <h3 className="font-display text-xl font-medium mb-2">{title}</h3>
+              <p className="text-sm text-muted-foreground line-clamp-1">Cliente: {client}</p>
+            </div>
+            <Button
+              asChild
+              variant="ghost"
+              size="icon"
+              className="opacity-0 group-hover:opacity-100 transition-opacity hover:bg-gray-200 hover:text-black shrink-0"
+            >
+              <Link to={`/projeto/${id}`}>
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
           </div>
-          <Button
-            asChild
-            variant="ghost"
-            size="icon"
-            className="opacity-0 group-hover:opacity-100 transition-opacity"
-          >
-            <Link to={`/projeto/${id}`}>
-              <ArrowRight className="h-5 w-5" />
-            </Link>
-          </Button>
         </div>
+        
         <div className="flex flex-wrap gap-2 mt-4">
           {tags.map((tag) => (
             <span 

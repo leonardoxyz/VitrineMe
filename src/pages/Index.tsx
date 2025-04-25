@@ -1,21 +1,33 @@
-
 import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import HeroSection from "@/components/HeroSection";
 import ProjectCard from "@/components/ProjectCard";
+import TemplateCard from "@/components/TemplateCard";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { projects } from "@/data/projects";
+import { templates } from "@/data/templates";
 
 const Index = () => {
-  // Scroll to top on page load
+  const location = useLocation();
+  const navigate = useNavigate();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+
+    const state = location.state as { scrollTo?: string };
+    if (state?.scrollTo) {
+      setTimeout(() => {
+        document.getElementById(state.scrollTo)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }, [location]);
 
   const featuredProjects = projects.filter(project => project.featured);
+  const featuredTemplates = templates.filter(template => template.featured);
 
   return (
     <>
@@ -23,18 +35,24 @@ const Index = () => {
       <main>
         <HeroSection />
 
-        {/* Featured Projects Section */}
-        <section className="py-20 bg-gray-50">
+        {/* Projects Section */}
+        <section id="projects" className="py-20 bg-gray-50">
           <div className="container">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
               <div>
-                <h2 className="text-3xl font-display font-bold mb-2">Projetos em Destaque</h2>
+                <h2 className="text-3xl font-display font-bold mb-2">
+                  Projetos em Destaque
+                </h2>
                 <p className="text-muted-foreground">Conheça alguns dos nossos trabalhos mais recentes</p>
               </div>
-              <Button asChild variant="outline" className="mt-4 md:mt-0">
-                <Link to="/projetos" className="flex items-center gap-2">
+              <Button 
+                variant="outline" 
+                className="mt-4 md:mt-0"
+                onClick={() => navigate('/projects')}
+              >
+                <span className="flex items-center gap-2">
                   Ver Todos <ArrowRight className="h-4 w-4" />
-                </Link>
+                </span>
               </Button>
             </div>
 
@@ -48,6 +66,41 @@ const Index = () => {
                   type={project.type}
                   thumbnail={project.thumbnail}
                   tags={project.tags}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Templates Section */}
+        <section id="templates" className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+              <div>
+                <h2 className="text-3xl font-display font-bold mb-2">Templates em Destaque</h2>
+                <p className="text-muted-foreground">Explore nossa seleção de templates prontos para uso</p>
+              </div>
+              <Button 
+                variant="outline" 
+                className="mt-4 md:mt-0"
+                onClick={() => navigate('/templates')}
+              >
+                <span className="flex items-center gap-2">
+                  Ver Todos <ArrowRight className="h-4 w-4" />
+                </span>
+              </Button>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {featuredTemplates.map((template) => (
+                <TemplateCard
+                  key={template.id}
+                  id={template.id}
+                  title={template.title}
+                  type={template.type}
+                  description={template.description}
+                  thumbnail={template.thumbnail}
+                  tags={template.tags}
+                  link={template.link}
                 />
               ))}
             </div>
@@ -182,7 +235,7 @@ const Index = () => {
               <p className="mb-8 max-w-xl mx-auto">
                 Entre em contato para discutirmos seu projeto e como podemos desenvolver a solução ideal para sua empresa ou negócio.
               </p>
-              <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary">
+              <Button asChild size="lg" variant="outline" className="text-black bg-white hover:bg-white/90">
                 <Link to="/contato">Vamos Conversar</Link>
               </Button>
             </div>

@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -23,7 +22,7 @@ const About = () => {
                 Sobre <span className="gradient-text">Nós</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                Conheça nossa história, missão e o que nos move a criar experiências digitais excepcionais
+                Conheça nossa abordagem única para criar experiências digitais que transformam negócios
               </p>
             </div>
           </div>
@@ -36,13 +35,13 @@ const About = () => {
               <div className="order-2 lg:order-1">
                 <h2 className="text-3xl font-display font-bold mb-6">Nossa História</h2>
                 <p className="text-gray-700 mb-6">
-                  Fundada em 2017, a DevPortfolio nasceu da paixão por criar websites excepcionais que não apenas parecem impressionantes, mas também entregam resultados tangíveis para nossos clientes. Começamos como uma pequena equipe de desenvolvedores e designers que acreditavam que cada negócio, independentemente do tamanho, merece uma presença digital de alta qualidade.
+                  A VitrineMe nasceu da visão de que cada empresa merece uma presença digital excepcional. Fundada com o propósito de democratizar o acesso a websites de alta qualidade, nossa jornada começou com um compromisso claro: criar soluções web que não apenas impressionem visualmente, mas que também entreguem resultados tangíveis para nossos clientes.
                 </p>
                 <p className="text-gray-700 mb-6">
-                  Ao longo dos anos, expandimos nossa equipe e aprimoramos nossa expertise, trabalhando com clientes de diversos segmentos, desde pequenas empresas locais até empresas multinacionais. Nossa abordagem centrada no cliente e nosso compromisso com a excelência técnica nos permitiram construir uma reputação sólida no mercado.
+                  Nossa abordagem única combina design intuitivo, desenvolvimento técnico robusto e uma compreensão profunda das necessidades do mercado. Acreditamos que um website não é apenas uma vitrine digital, mas uma ferramenta estratégica que pode impulsionar o crescimento do seu negócio.
                 </p>
                 <p className="text-gray-700">
-                  Hoje, somos reconhecidos por entregar soluções web que combinam design inovador, usabilidade excepcional e código limpo e escalável. Continuamos apaixonados por ajudar empresas a maximizar seu potencial online através de experiências digitais memoráveis.
+                  Hoje, nos orgulhamos de ter ajudado diversos empreendedores e empresas a estabelecerem uma presença online forte e eficaz. Nossa dedicação à excelência e ao atendimento personalizado nos permite entregar resultados que superam expectativas, independentemente do tamanho do projeto.
                 </p>
               </div>
 
@@ -165,63 +164,57 @@ const About = () => {
           </div>
         </section>
 
-        {/* Team */}
+        {/* Expertise */}
         <section className="py-20 bg-gray-50">
           <div className="container">
             <div className="max-w-3xl mx-auto text-center mb-16">
-              <h2 className="text-3xl font-display font-bold mb-6">Nossa Equipe</h2>
+              <h2 className="text-3xl font-display font-bold mb-6">Nossa Especialidade</h2>
               <p className="text-lg text-gray-700">
-                Conheça os profissionais talentosos por trás dos nossos projetos
+                Focamos em criar soluções web que combinam design, funcionalidade e resultados
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="hover-card">
-                <div className="rounded-xl overflow-hidden mb-4">
-                  <img 
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" 
-                    alt="Marcos Silva" 
-                    className="w-full h-auto aspect-square object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-medium">Marcos Silva</h3>
-                <p className="text-muted-foreground">Fundador & Diretor</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="p-8 rounded-xl glassmorphism hover-card">
+                <h3 className="text-xl font-medium mb-4">Design Responsivo</h3>
+                <p className="text-muted-foreground mb-4">
+                  Criamos interfaces que se adaptam perfeitamente a qualquer dispositivo, garantindo uma experiência consistente para todos os usuários.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-primary"></div>
+                    <span>Layouts modernos e intuitivos</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-primary"></div>
+                    <span>Otimização para todos os dispositivos</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-primary"></div>
+                    <span>Experiência de usuário aprimorada</span>
+                  </li>
+                </ul>
               </div>
 
-              <div className="hover-card">
-                <div className="rounded-xl overflow-hidden mb-4">
-                  <img 
-                    src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" 
-                    alt="Carla Mendes" 
-                    className="w-full h-auto aspect-square object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-medium">Carla Mendes</h3>
-                <p className="text-muted-foreground">Designer UX/UI</p>
-              </div>
-
-              <div className="hover-card">
-                <div className="rounded-xl overflow-hidden mb-4">
-                  <img 
-                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" 
-                    alt="Rafael Costa" 
-                    className="w-full h-auto aspect-square object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-medium">Rafael Costa</h3>
-                <p className="text-muted-foreground">Desenvolvedor Frontend</p>
-              </div>
-
-              <div className="hover-card">
-                <div className="rounded-xl overflow-hidden mb-4">
-                  <img 
-                    src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80" 
-                    alt="Juliana Ferreira" 
-                    className="w-full h-auto aspect-square object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-medium">Juliana Ferreira</h3>
-                <p className="text-muted-foreground">Desenvolvedora Backend</p>
+              <div className="p-8 rounded-xl glassmorphism hover-card">
+                <h3 className="text-xl font-medium mb-4">Desenvolvimento Web</h3>
+                <p className="text-muted-foreground mb-4">
+                  Utilizamos as tecnologias mais recentes para criar websites rápidos, seguros e escaláveis.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-primary"></div>
+                    <span>Código limpo e otimizado</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-primary"></div>
+                    <span>Performance e velocidade</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-primary"></div>
+                    <span>SEO e acessibilidade</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -233,9 +226,9 @@ const About = () => {
             <div className="max-w-4xl mx-auto text-center p-12 rounded-2xl gradient-bg text-white">
               <h2 className="text-3xl font-display font-bold mb-4">Vamos Trabalhar Juntos?</h2>
               <p className="mb-8 max-w-xl mx-auto">
-                Se você está procurando uma equipe para transformar suas ideias em realidade digital, estamos aqui para ajudar.
+                Se você está procurando uma solução web que combine design, funcionalidade e resultados, estamos aqui para ajudar.
               </p>
-              <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary">
+              <Button asChild size="lg" variant="outline" className="bg-white text-black border-purple-500 hover:bg-gray-200">
                 <Link to="/contato">Entre em Contato</Link>
               </Button>
             </div>
